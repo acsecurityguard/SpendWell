@@ -16,12 +16,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var textAmount: UITextField!
     
     @IBOutlet weak var textRating: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +40,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addAction(_ sender: UIButton)
     {
         operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!)
-    self.view.endEditing(true)
+        self.view.endEditing(true)
         textTitle.text = ""
         textAmount.text = ""
         textRating.text = ""
@@ -51,7 +51,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-      self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -59,7 +59,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
-
+    
+    
 }
 

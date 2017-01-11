@@ -13,6 +13,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
+    
+    
+   
     /*Variables
      */
     @IBOutlet var descripts: UITableView!
@@ -39,9 +42,29 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var sum: Float!
     //sum of all expenses
     
-    
+       
     /*override functions
      */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+        {
+            let indexPath: NSIndexPath = self.descripts.indexPathForSelectedRow! as NSIndexPath
+            
+ 
+            
+            
+        let dest: SingleCellViewController = segue.destination as! SingleCellViewController
+        
+        dest.showTitle = operation.descriptions[indexPath.row].title
+        
+        dest.showPrice = "$ " + operation.descriptions[indexPath.row].price
+        
+        dest.showRate = operation.descriptions[indexPath.row].rating
+            
+        dest.showReceipt = operation.descriptions[indexPath.row].receipt
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -69,13 +92,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return operation.descriptions.count
     }
     
+    //@IBOutlet var titleLabel: UILabel!
     //implements the delet function for the table view and updates the total spent
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if(editingStyle == UITableViewCellEditingStyle.delete)
         {
-            
-
             if(Int(operation.descriptions[indexPath.row].price) != nil)
             {
                 totalSpent.text = String(Int(totalSpent.text!)! - Int(operation.descriptions[indexPath.row].price)!)
@@ -88,16 +110,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
         var rate: Int!
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "empty")
         
-        cell.textLabel!.text = operation.descriptions[indexPath.row].title
-        cell.detailTextLabel!.text = "$ " + operation.descriptions[indexPath.row].price
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell") as! CellTableViewCell
+        
+        cell.cellImage.image = operation.descriptions[indexPath.row].receipt
+        
+        cell.cellTitle.text = operation.descriptions[indexPath.row].title
+        
+        cell.cellPrice.text = "$ " + operation.descriptions[indexPath.row].price
+        
+       
         
         if(Int(operation.descriptions[indexPath.row].price) != nil)
         {
-                        totalSpent.text = String(Int(operation.descriptions[indexPath.row].price)! + Int(totalSpent.text!)!)
+            totalSpent.text = String(Int(operation.descriptions[indexPath.row].price)! + Int(totalSpent.text!)!)
         }
         if(Int(operation.descriptions[indexPath.row].rating) != nil)
         {
@@ -106,8 +133,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             if(value != nil)
             {
-                
-
                 count = count + 1
                 sum! = value + sum
                 wellTrack.setProgress(Float(sum)/Float(count), animated: true)
@@ -132,10 +157,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                     textRecommend.text = "\"Great job managing your money\""
                 }
-                
             }
         }
-        
         return cell
     }
 }

@@ -47,10 +47,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
                 self.openCamera()
                 
             }
-            let gallaryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default)
+            let galleryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default)
             {
                 UIAlertAction in
-                self.openGallary()
+                self.openGallery()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
             {
@@ -59,7 +59,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
             }
             picker?.delegate = self
             alert.addAction(cameraAction)
-            alert.addAction(gallaryAction)
+            alert.addAction(galleryAction)
             alert.addAction(cancelAction)
         
             if UIDevice.current.userInterfaceIdiom == .phone
@@ -79,14 +79,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
             }
             else
             {
-                openGallary()
+                openGallery()
             }
         }
     
         /*
         *opens the  photo library
         */
-        private func openGallary()
+        private func openGallery()
         {
             picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
             if UIDevice.current.userInterfaceIdiom == .phone

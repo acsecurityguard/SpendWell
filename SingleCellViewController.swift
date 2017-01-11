@@ -9,19 +9,19 @@
 import UIKit
 
 class SingleCellViewController: UIViewController {
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
     
     var showTitle = String()
     
-    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet private var priceLabel: UILabel!
     
     var showPrice = String()
     
-    @IBOutlet var ratingCell: UILabel!
+    @IBOutlet private var ratingCell: UILabel!
     
     var showRate = String()
     
-    @IBOutlet var imageCell: UIImageView!
+    @IBOutlet private var imageCell: UIImageView!
     
     var showReceipt = UIImage(named: "")
     

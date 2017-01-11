@@ -14,19 +14,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
 
 
 {
-    @IBOutlet var checkLabel: UILabel!
+    @IBOutlet private var checkLabel: UILabel!
     //check mark if a picture as chosen
     
-    @IBOutlet var imagePicked: UIImageView!
+    @IBOutlet private var imagePicked: UIImageView!
     //image view of the image picked
     
     private var imagePicker: UIImagePickerController!
     //image picker
     
-    @IBOutlet var textTitle: UITextField!
+    @IBOutlet private var textTitle: UITextField!
     //title of expense
     
-    @IBOutlet var textAmount: UITextField!
+    @IBOutlet private var textAmount: UITextField!
     //price of expense
     
     var picker:UIImagePickerController?=UIImagePickerController()
@@ -38,7 +38,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     /*Take Photo
     / enables user to take a photo or select a picture from library
      */
-    @IBAction func takePhoto(_ sender: AnyObject) {
+    @IBAction private func takePhoto(_ sender: AnyObject) {
             let alert:UIAlertController=UIAlertController(title: "upload receipt", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
@@ -70,7 +70,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         /*
         *opens the camera if available, otherwise the photo library is called
         */
-        func openCamera()
+        private func openCamera()
         {
             if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
             {
@@ -86,7 +86,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         /*
         *opens the  photo library
         */
-        func openGallary()
+        private func openGallary()
         {
             picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
             if UIDevice.current.userInterfaceIdiom == .phone
@@ -98,7 +98,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         /*
         *once the user has chosen an image
         */
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+        internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
         {
             imagePicked.image=info[UIImagePickerControllerOriginalImage] as? UIImage
             checkLabel.text = "✓"
@@ -108,7 +108,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         /*
         *opens the camera if available, otherwise the photo library is called
         */
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+        internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
         {
             picker .dismiss(animated: true, completion: nil)
         }
@@ -117,7 +117,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     //-------------------------------------------
 
     
-    @IBOutlet weak var textRating: UILabel!
+    @IBOutlet private weak var textRating: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +139,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     }
     
     
-    @IBAction func addAction(_ sender: UIButton)
+    @IBAction private func addAction(_ sender: UIButton)
     {
         operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!,receipt: imagePicked.image!)
         self.view.endEditing(true)
@@ -157,7 +157,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         self.view.endEditing(true)
     }
     
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true

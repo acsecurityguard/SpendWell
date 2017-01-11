@@ -18,19 +18,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
    
     /*Variables
      */
-    @IBOutlet var descripts: UITableView!
+    @IBOutlet private var descripts: UITableView!
     //table view with information of title, price and rating
     
-    @IBOutlet weak var wellTrack: UIProgressView!
+    @IBOutlet private weak var wellTrack: UIProgressView!
     //progress view for the rating
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     //scroll view
     
-    @IBOutlet weak var totalSpent: UILabel!
+    @IBOutlet private weak var totalSpent: UILabel!
     //total spent (sum of all expenses)
     
-    @IBOutlet weak var textRecommend: UILabel!
+    @IBOutlet private weak var textRecommend: UILabel!
     //recommended text according to rating
     
     var value: Float!
@@ -84,7 +84,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //initializes the table view
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         totalSpent.text = "0"
         count = 0
@@ -94,7 +94,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //@IBOutlet var titleLabel: UILabel!
     //implements the delet function for the table view and updates the total spent
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if(editingStyle == UITableViewCellEditingStyle.delete)
         {
@@ -108,7 +108,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         var rate: Int!
         

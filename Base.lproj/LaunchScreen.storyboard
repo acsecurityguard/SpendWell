@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,54 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="mag-iy-t0s">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&quot;Discover how you use your money&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efO-Mi-C7I">
+                                <rect key="frame" x="16" y="296" width="343" height="65"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                <color key="textColor" red="0.96462160350000004" green="0.96475988629999998" blue="0.96459132430000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="lEj-Ij-5pa">
+                                <rect key="frame" x="90" y="208" width="195" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ey-EN-7z3">
+                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="0.96462160350000004" green="0.96475988629999998" blue="0.96459132430000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-Td-Zo2">
+                                        <rect key="frame" x="109.5" y="0.0" width="85.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
+                                        <color key="textColor" red="0.56476330760000004" green="0.79619055989999998" blue="0.46587395669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mag-iy-t0s" firstAttribute="top" secondItem="lEj-Ij-5pa" secondAttribute="bottom" constant="-256" id="5v7-fC-QkG"/>
+                            <constraint firstItem="mag-iy-t0s" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="J4l-48-iEA"/>
+                            <constraint firstItem="efO-Mi-C7I" firstAttribute="top" secondItem="9Ey-EN-7z3" secondAttribute="bottom" constant="40" id="Jyl-Df-nz6"/>
+                            <constraint firstItem="lEj-Ij-5pa" firstAttribute="leading" secondItem="mag-iy-t0s" secondAttribute="trailing" constant="-285" id="MaE-i0-mu4"/>
+                            <constraint firstItem="F3a-Td-Zo2" firstAttribute="leading" secondItem="mag-iy-t0s" secondAttribute="trailing" constant="-175.5" id="N2M-yC-lEA"/>
+                            <constraint firstAttribute="trailing" secondItem="mag-iy-t0s" secondAttribute="trailing" id="NQb-CR-Anc"/>
+                            <constraint firstItem="efO-Mi-C7I" firstAttribute="centerX" secondItem="lEj-Ij-5pa" secondAttribute="centerX" id="WNy-Pb-D2l"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="mag-iy-t0s" secondAttribute="bottom" constant="-623" id="vPP-ZF-Ze0"/>
+                            <constraint firstItem="mag-iy-t0s" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="wb3-3q-1nX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BACKGROUND" width="1024" height="1024"/>
+    </resources>
 </document>

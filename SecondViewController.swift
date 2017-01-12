@@ -125,6 +125,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         
         picker!.delegate=self
         
+  
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,6 +143,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     
     @IBAction private func addAction(_ sender: UIButton)
     {
+        
+        
+        /********************************/
+        
         operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!,receipt: imagePicked.image!)
         self.view.endEditing(true)
         textTitle.text = ""

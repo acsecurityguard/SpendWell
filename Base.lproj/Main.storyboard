@@ -13,7 +13,7 @@
         <!--Menu-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="SpendWell" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="SpendWell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -122,7 +122,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="305" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wYh-5u-DHP" id="nV8-UD-lRb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="305" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XqH-1n-pX8">
@@ -373,10 +373,10 @@
                                         <rect key="frame" x="6" y="8" width="300" height="435"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-xL-Kpi">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-Ku-TLa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fsl-AR-omJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="75.5"/>
@@ -458,7 +458,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-c1-uwg">
-                                                                <rect key="frame" x="-2" y="268.5" width="304" height="32"/>
+                                                                <rect key="frame" x="-2" y="268.5" width="304" height="31.5"/>
                                                                 <color key="tintColor" red="0.56476330760000004" green="0.79619055989999998" blue="0.46587395669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
                                                                     <action selector="sliderAction:" destination="8rJ-Kc-sve" eventType="valueChanged" id="N9w-Vs-97U"/>
@@ -469,13 +469,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="c5D-xp-cBP">
-                                                <rect key="frame" x="0.0" y="319.5" width="300" height="115.5"/>
+                                                <rect key="frame" x="0.0" y="319" width="300" height="116"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tci-fr-UWw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="45.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="45"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LX9-Mp-z8x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="45.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="45"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                                 <state key="normal" title="calculate">
@@ -486,7 +486,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlp-aO-Hlg">
-                                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="45.5"/>
+                                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="45"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                                 <state key="normal" title="        add        ">
@@ -499,7 +499,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOJ-eo-K72">
-                                                        <rect key="frame" x="0.0" y="45.5" width="300" height="70"/>
+                                                        <rect key="frame" x="0.0" y="45" width="300" height="71"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -823,7 +823,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -836,6 +835,7 @@
                         <segue destination="aJn-fi-3Xt" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>

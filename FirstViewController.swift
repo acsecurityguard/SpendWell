@@ -83,6 +83,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //reloads all descriptions from the table view
     }
     
+    
     //initializes the table view
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -106,6 +107,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             descripts.reloadData()
         }
     }
+    
+    
     
     //
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -161,5 +164,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

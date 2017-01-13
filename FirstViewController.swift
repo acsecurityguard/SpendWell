@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
+   // let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //var frc: NSFetchedResultsController = NSFetchedResultsController()
     
     
     
@@ -42,6 +46,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var sum: Float!
     //sum of all expenses
     
+    var tasks: [EntityCell] = []
+    
        
     /*override functions
      */
@@ -49,18 +55,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             let indexPath: NSIndexPath = self.descripts.indexPathForSelectedRow! as NSIndexPath
             
- 
+            let task = tasks[indexPath.row]
+            
+            let imagePt = UIImage(data: (task.imageEntityCell! ) as Data)
             
             
         let dest: SingleCellViewController = segue.destination as! SingleCellViewController
         
-        dest.showTitle = operation.descriptions[indexPath.row].title
+        dest.showTitle = task.titleEntityCell!
         
-        dest.showPrice = "$ " + operation.descriptions[indexPath.row].price
+        dest.showPrice = "$ " + task.priceEntityCell!
         
-        dest.showRate = operation.descriptions[indexPath.row].rating
+        dest.showRate = task.ratingEntityCell!
             
-        dest.showReceipt = operation.descriptions[indexPath.row].receipt
+        dest.showReceipt = imagePt
         
     }
     
@@ -69,6 +77,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         scrollView.contentSize.height = 2000
+        
         //sets the height of scroll view
     }
     
@@ -79,8 +88,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool)
     {
+        getData()
         descripts.reloadData()
         //reloads all descriptions from the table view
+        
     }
     
     
@@ -90,20 +101,47 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         totalSpent.text = "0"
         count = 0
         sum = 0
-        return operation.descriptions.count
+        //return operation.descriptions.count
+        return tasks.count
     }
     
     //@IBOutlet var titleLabel: UILabel!
     //implements the delet function for the table view and updates the total spent
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        
         if(editingStyle == UITableViewCellEditingStyle.delete)
         {
-            if(Int(operation.descriptions[indexPath.row].price) != nil)
+            
+            
+            let task = tasks[indexPath.row]
+            
+            if(Int(task.priceEntityCell!) != nil)
             {
-                totalSpent.text = String(Int(totalSpent.text!)! - Int(operation.descriptions[indexPath.row].price)!)
+                totalSpent.text = String(Int(totalSpent.text!)! - Int(task.priceEntityCell!)!)
             }
-            operation.descriptions.remove(at: indexPath.row)
+            
+            context.delete(task)
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+           
+            
+            do{
+                
+                
+                
+                tasks = try context.fetch(EntityCell.fetchRequest())
+            }
+            catch{
+                print("fetch failed")
+            }
+            
+            
+        
+            //task.remove(at: indexPath.row)*/
             descripts.reloadData()
         }
     }
@@ -115,23 +153,69 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         var rate: Int!
         
+       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell") as! CellTableViewCell
         
-        cell.cellImage.image = operation.descriptions[indexPath.row].receipt
+        let task = tasks[indexPath.row]
         
-        cell.cellTitle.text = operation.descriptions[indexPath.row].title
         
-        cell.cellPrice.text = "$ " + operation.descriptions[indexPath.row].price
+        if(task.imageEntityCell != nil)
+        {
+        let imagePt = UIImage(data: (task.imageEntityCell! ) as Data)
+            
+        cell.cellImage.image = imagePt
+        }
+        
+        
+        
+        
+        cell.cellTitle.text = task.titleEntityCell!
+        
+        cell.cellPrice.text =  "$" + task.priceEntityCell!
+        
         
        
         
-        if(Int(operation.descriptions[indexPath.row].price) != nil)
-        {
-            totalSpent.text = String(Int(operation.descriptions[indexPath.row].price)! + Int(totalSpent.text!)!)
+        //*****************
+        /*let entityCell:EntityCell = NSEntityDescription.insertNewObject(forEntityName: "EntityCell", into: DataBaseControl.persistentContainer.viewContext) as! EntityCell
+        
+        
+        let imageNS = UIImagePNGRepresentation(operation.descriptions[indexPath.row].receipt) as NSData?
+        
+        
+    
+        entityCell.imageEntityCell = imageNS
+        
+        entityCell.priceEntityCell = "$ " + operation.descriptions[indexPath.row].price
+        
+        entityCell.titleEntityCell = operation.descriptions[indexPath.row].title
+        
+        entityCell.ratingEntityCell = operation.descriptions[indexPath.row].rating
+        
+        DataBaseControl.saveContext()
+        
+        let fetchRequest:NSFetchRequest<EntityCell> = EntityCell.fetchRequest()
+        
+        do{
+            _ = try DataBaseControl.getContext().fetch(fetchRequest)
+            
         }
-        if(Int(operation.descriptions[indexPath.row].rating) != nil)
+        catch{
+            print("fail")
+        }*/
+//*************************
+        
+       
+        
+        if(Int(task.priceEntityCell!) != nil)
         {
-            rate = Int(operation.descriptions[indexPath.row].rating)!
+            
+            totalSpent.text = String(Int(totalSpent.text!)! + Int(task.priceEntityCell!)!)
+        }
+        if(Int(task.ratingEntityCell!) != nil)
+        {
+            rate = Int(task.ratingEntityCell!)!
             value = (Float(rate))/100.0
             
             if(value != nil)
@@ -165,7 +249,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func getData(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do{
     
+        
+        tasks = try context.fetch(EntityCell.fetchRequest())
+        }
+        catch{
+            print("fetch failed")
+        }
+    }
     
     
     

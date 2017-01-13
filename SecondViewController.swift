@@ -143,6 +143,34 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     
     @IBAction private func addAction(_ sender: UIButton)
     {
+        if(imagePicked.image != nil){
+        operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!,receipt: imagePicked.image!)
+        }
+        
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let task = EntityCell(context: context)
+        
+        if(imagePicked.image != nil){
+        let imageNS = UIImagePNGRepresentation(imagePicked.image!) as NSData?
+            
+        task.imageEntityCell = imageNS
+        }
+        
+        
+        
+        
+        
+        task.priceEntityCell = textAmount.text!
+        
+        task.titleEntityCell = textTitle.text!
+        
+        task.ratingEntityCell = textRating.text
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        
         
         
         /********************************/

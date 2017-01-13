@@ -57,10 +57,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             let task = tasks[indexPath.row]
             
+             let dest: SingleCellViewController = segue.destination as! SingleCellViewController
+            
+            if(task.imageEntityCell != nil)
+            {
             let imagePt = UIImage(data: (task.imageEntityCell! ) as Data)
+                
+                dest.showReceipt = imagePt
+            }
             
             
-        let dest: SingleCellViewController = segue.destination as! SingleCellViewController
+       
         
         dest.showTitle = task.titleEntityCell!
         
@@ -68,7 +75,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         dest.showRate = task.ratingEntityCell!
             
-        dest.showReceipt = imagePt
+        
         
     }
     
@@ -77,6 +84,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         scrollView.contentSize.height = 2000
+       
         
         //sets the height of scroll view
     }
@@ -141,7 +149,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             
         
-            //task.remove(at: indexPath.row)*/
+           
             descripts.reloadData()
         }
     }
@@ -173,6 +181,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.cellTitle.text = task.titleEntityCell!
         
         cell.cellPrice.text =  "$" + task.priceEntityCell!
+        
+       
+        let swiftGreen = UIColor(red: 144, green: 203, blue: 119, alpha: 1)
+        
+        if(Int(task.ratingEntityCell!) != nil)
+        {
+            if(Float(task.ratingEntityCell!)! >= 0.50)
+            {
+                cell.backgroundColor = swiftGreen
+            }
+        }
+        
         
         
        

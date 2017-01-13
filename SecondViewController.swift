@@ -175,7 +175,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         
         /********************************/
         
-        operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!,receipt: imagePicked.image!)
+       
         self.view.endEditing(true)
         textTitle.text = ""
         textAmount.text = ""

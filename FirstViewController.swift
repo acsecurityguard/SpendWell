@@ -12,17 +12,10 @@ import CoreData
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-   // let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //var frc: NSFetchedResultsController = NSFetchedResultsController()
-    
-    
-    
-    
-   
     /*Variables
      */
-    @IBOutlet private var descripts: UITableView!
+    @IBOutlet var descripts: UITableView!
     //table view with information of title, price and rating
     
     @IBOutlet private weak var wellTrack: UIProgressView!
@@ -84,6 +77,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         scrollView.contentSize.height = 2000
+        
+        
+        if traitCollection.forceTouchCapability == .available{
+          //  registerForPreviewing(with: self as! UIViewControllerPreviewingDelegate, sourceView: self.descripts)
+        }
+       
        
         
         //sets the height of scroll view
@@ -193,38 +192,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         
-        
-        
-       
-        
-        //*****************
-        /*let entityCell:EntityCell = NSEntityDescription.insertNewObject(forEntityName: "EntityCell", into: DataBaseControl.persistentContainer.viewContext) as! EntityCell
-        
-        
-        let imageNS = UIImagePNGRepresentation(operation.descriptions[indexPath.row].receipt) as NSData?
-        
-        
-    
-        entityCell.imageEntityCell = imageNS
-        
-        entityCell.priceEntityCell = "$ " + operation.descriptions[indexPath.row].price
-        
-        entityCell.titleEntityCell = operation.descriptions[indexPath.row].title
-        
-        entityCell.ratingEntityCell = operation.descriptions[indexPath.row].rating
-        
-        DataBaseControl.saveContext()
-        
-        let fetchRequest:NSFetchRequest<EntityCell> = EntityCell.fetchRequest()
-        
-        do{
-            _ = try DataBaseControl.getContext().fetch(fetchRequest)
-            
-        }
-        catch{
-            print("fail")
-        }*/
-//*************************
+        //*************************
         
        
         
@@ -288,5 +256,53 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
-}
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = descripts.indexPathForRow(at: location),
+             let cell = descripts.cellForRow(at: indexPath) else {return nil}
+        
+        
+        //let task = tasks[indexPath.row]
+        
+        
+        guard let previewVC = storyboard?.instantiateViewController(withIdentifier: "firstView") as? PreviewViewController else {return nil}
+        /*
+        previewVC.selectedItem = task
+        quickActionString = task
+        */
+        
+        previewVC.selectedItem = String(describing: tasks[indexPath.row])
+        
+        
+        
+        
+       // previewingContext.sourceRect = cell.frame
+        
+        
+        return nil
+    }
+    
+    // POP
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+       /* if let stuffVC = storyboard?.instantiateViewController(withIdentifier: "AddStuffVC") as? AddStuffViewController{
+            stuffVC.detailInfo = quickActionString*/
+            
+          //  show(stuffVC, sender: self)
+        }
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 

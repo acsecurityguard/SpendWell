@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if let shortcutItems = application.shortcutItems, shortcutItems.isEmpty{
+            let dynamicShortcut = UIMutableApplicationShortcutItem(type: "Add Expense", localizedTitle: "Add Expense", localizedSubtitle: "add expense", icon: UIApplicationShortcutIcon(templateImageName: "spend"), userInfo: nil)
+            
+            application.shortcutItems = [dynamicShortcut]
+        }
+        
+        
         // Override point for customization after application launch.
         return true
     }
@@ -88,6 +96,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        if let tabVC = self.window?.rootViewController as? UITabBarController{
+            if shortcutItem.type == "lExpense"{
+                tabVC.selectedIndex = 0}
+            else if(shortcutItem.type == "Expense"){
+                tabVC.selectedIndex = 1
+                
+            }
+        }
+        
+        
+        /*if shortcutItem.type == "j.SpendWell.addExpense" {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let AddExpense = sb.instantiateViewController(withIdentifier: "AddExpense") as! SecondViewController
+            let root = UIApplication.shared.keyWindow?.rootViewController
+            
+            root?.present(AddExpense, animated: false, completion: { () -> Void in
+                completionHandler(true)
+            })
+            
+            
+        }*/
+    }
+
+   
+    
+    
+    
+    
+    
     
 }
 

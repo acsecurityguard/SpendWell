@@ -140,12 +140,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         sliderLabel.text = "\(Int(slider.value))"
     }
     
+   
     
     @IBAction private func addAction(_ sender: UIButton)
     {
-        if(imagePicked.image != nil){
-        operation.addDescription(title: textTitle.text!, price:  textAmount.text!, rating: textRating.text!,receipt: imagePicked.image!)
-        }
+      
         
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

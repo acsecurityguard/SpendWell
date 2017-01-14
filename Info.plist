@@ -6,7 +6,22 @@
 	<string>en</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutItemIconTypeAdd</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Spend Well</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>j.SpendWell</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Menu</string>
+		</dict>
+	</array>
 	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>CFBundleDisplayName</key>
 	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

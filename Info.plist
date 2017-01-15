@@ -4,19 +4,15 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>en</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutItemIconTypeAdd</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Spend Well</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>j.SpendWell</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Menu</string>
 		</dict>
 	</array>
 	<key>LSApplicationCategoryType</key>

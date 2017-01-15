@@ -30,6 +30,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     //price of expense
     
     var picker:UIImagePickerController?=UIImagePickerController()
+    
+    var detailInfo:String?
 
     
     
@@ -125,6 +127,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         
         picker!.delegate=self
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.gray]
+        
   
         
     }
@@ -140,7 +145,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         sliderLabel.text = "\(Int(slider.value))"
     }
     
-   
+//********************
+    
+    
+    
+    
+    //********************
+    
+    
+    
+    
     
     @IBAction private func addAction(_ sender: UIButton)
     {
@@ -195,12 +209,95 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         textField.resignFirstResponder()
         return true
     }
+    
+    //*****************************
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+
+
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+
+open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+get {
+    return .portrait
+}
+}
+//*****************************
+
+
+    
 }
 
-
-
-   
+//*************************************
+extension UINavigationController {
     
+    override open var shouldAutorotate: Bool {
+        get {
+            if let visibleVC = visibleViewController {
+                return visibleVC.shouldAutorotate
+            }
+            return super.shouldAutorotate
+        }
+    }
+    
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            if let visibleVC = visibleViewController {
+                return visibleVC.preferredInterfaceOrientationForPresentation
+            }
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            if let visibleVC = visibleViewController {
+                return visibleVC.supportedInterfaceOrientations
+            }
+            return super.supportedInterfaceOrientations
+        }
+    }}
+
+
+//*************************************
+extension UITabBarController {
+    
+    override open var shouldAutorotate: Bool {
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.shouldAutorotate
+            }
+            return super.shouldAutorotate
+        }
+    }
+    
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.preferredInterfaceOrientationForPresentation
+            }
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.supportedInterfaceOrientations
+            }
+            return super.supportedInterfaceOrientations
+        }
+    }}
+
+
 
 
 

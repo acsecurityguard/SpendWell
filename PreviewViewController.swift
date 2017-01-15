@@ -10,10 +10,15 @@ import UIKit
 
 class PreviewViewController: UIViewController {
     
-    var selectedItem:String!
+    var selectedItem:String! = " "
     
+    
+    
+    
+    @IBOutlet weak var previewLabel: UILabel!
     
     var previewActions:[UIPreviewActionItem] {
+        previewLabel.text = " "
         
         let item1 = UIPreviewAction(title: "Do something", style: .default) { (action:UIPreviewAction, vc:UIViewController) -> Void in
             print("Awesome")
@@ -26,13 +31,19 @@ class PreviewViewController: UIViewController {
         return [item1, item2]
         
     }
+
     
     
-    @IBOutlet weak var previewLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerForPreviewing(with: self as! UIViewControllerPreviewingDelegate, sourceView: view)
         // Do any additional setup after loading the view.
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        return UIViewController()
     }
     
     

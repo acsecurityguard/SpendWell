@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         if let shortcutItems = application.shortcutItems, shortcutItems.isEmpty{
-            let dynamicShortcut = UIMutableApplicationShortcutItem(type: "Add Expense", localizedTitle: "Add Expense", localizedSubtitle: "add expense", icon: UIApplicationShortcutIcon(templateImageName: "spend"), userInfo: nil)
+            //let dynamicShortcut = UIMutableApplicationShortcutItem(type: "Add Expense", localizedTitle: "Add Expense", localizedSubtitle: "add expense", icon: UIApplicationShortcutIcon(templateImageName: "spend"), userInfo: nil)
             
-            application.shortcutItems = [dynamicShortcut]
+           // application.shortcutItems = [dynamicShortcut]
         }
         
         
@@ -100,9 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
         if let tabVC = self.window?.rootViewController as? UITabBarController{
-            if shortcutItem.type == "lExpense"{
-                tabVC.selectedIndex = 0}
-            else if(shortcutItem.type == "Expense"){
+                      if(shortcutItem.type == "Expense"){
                 tabVC.selectedIndex = 1
                 
             }
@@ -122,9 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }*/
     }
 
-   
-    
-    
+
     
     
     

@@ -41,6 +41,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var tasks: [EntityCell] = []
     
+    var stuffType:String! = " "
+    var quickActionString:String! = " "
+    
        
     /*override functions
      */
@@ -79,9 +82,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         scrollView.contentSize.height = 2000
         
         
-        if traitCollection.forceTouchCapability == .available{
-          //  registerForPreviewing(with: self as! UIViewControllerPreviewingDelegate, sourceView: self.descripts)
-        }
+       
+        
        
        
         
@@ -250,51 +252,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    
-    
-    
-    
-    
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        guard let indexPath = descripts.indexPathForRow(at: location),
-             let cell = descripts.cellForRow(at: indexPath) else {return nil}
-        
-        
-        //let task = tasks[indexPath.row]
-        
-        
-        guard let previewVC = storyboard?.instantiateViewController(withIdentifier: "firstView") as? PreviewViewController else {return nil}
-        /*
-        previewVC.selectedItem = task
-        quickActionString = task
-        */
-        
-        previewVC.selectedItem = String(describing: tasks[indexPath.row])
-        
-        
-        
-        
-       // previewingContext.sourceRect = cell.frame
-        
-        
-        return nil
-    }
-    
-    // POP
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-       /* if let stuffVC = storyboard?.instantiateViewController(withIdentifier: "AddStuffVC") as? AddStuffViewController{
-            stuffVC.detailInfo = quickActionString*/
-            
-          //  show(stuffVC, sender: self)
-        }
-        
-        
-    }
+}
 
     
     
+    
+    
+    
+    
+    
+        
+
+
+    
+
+
+    
+
+
     
     
     

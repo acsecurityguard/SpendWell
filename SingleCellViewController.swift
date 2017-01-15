@@ -51,6 +51,26 @@ class SingleCellViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+    
+    
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            return .portrait
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

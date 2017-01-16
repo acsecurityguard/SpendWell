@@ -10,14 +10,14 @@ import UIKit
 import MobileCoreServices
 
 
-class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
+class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
 
 
 {
-    @IBOutlet private var checkLabel: UILabel!
+    @IBOutlet var checkLabel: UILabel!
     //check mark if a picture as chosen
     
-    @IBOutlet private var imagePicked: UIImageView!
+    @IBOutlet var imagePicked: UIImageView!
     //image view of the image picked
     
     private var imagePicker: UIImagePickerController!
@@ -35,87 +35,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
 
     
     
-    //-------------------------------------------
-    
-    /*Take Photo
-    / enables user to take a photo or select a picture from library
-     */
-    @IBAction private func takePhoto(_ sender: AnyObject) {
-            let alert:UIAlertController=UIAlertController(title: "upload receipt", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-            
-            let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
-            {
-                UIAlertAction in
-                self.openCamera()
-                
-            }
-            let galleryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default)
-            {
-                UIAlertAction in
-                self.openGallery()
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
-            {
-                UIAlertAction in
-                
-            }
-            picker?.delegate = self
-            alert.addAction(cameraAction)
-            alert.addAction(galleryAction)
-            alert.addAction(cancelAction)
-        
-            if UIDevice.current.userInterfaceIdiom == .phone
-            {
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        /*
-        *opens the camera if available, otherwise the photo library is called
-        */
-        private func openCamera()
-        {
-            if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
-            {
-                picker!.sourceType = UIImagePickerControllerSourceType.camera
-                self .present(picker!, animated: true, completion: nil)
-            }
-            else
-            {
-                openGallery()
-            }
-        }
-    
-        /*
-        *opens the  photo library
-        */
-        private func openGallery()
-        {
-            picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            if UIDevice.current.userInterfaceIdiom == .phone
-            {
-                self.present(picker!, animated: true, completion: nil)
-            }
-        }
-    
-        /*
-        *once the user has chosen an image
-        */
-        internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-        {
-            imagePicked.image=info[UIImagePickerControllerOriginalImage] as? UIImage
-            checkLabel.text = "✓"
-             picker .dismiss(animated: true, completion: nil)
-        }
-    
-        /*
-        *opens the camera if available, otherwise the photo library is called
-        */
-        internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-        {
-            picker .dismiss(animated: true, completion: nil)
-        }
    
-
     //-------------------------------------------
 
     
@@ -146,16 +66,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     }
     
 //********************
+
     
-    
-    
-    
-    //********************
-    
-    
-    
-    
-    
+    /*
+     *
+     * SAVE BUTTON
+     *
+     */
     @IBAction private func addAction(_ sender: UIButton)
     {
       
@@ -199,6 +116,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         self.tabBarController?.selectedIndex = 0
     }
     
+    
+    //****************************
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
@@ -236,66 +155,8 @@ get {
     
 }
 
-//*************************************
-extension UINavigationController {
-    
-    override open var shouldAutorotate: Bool {
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.shouldAutorotate
-            }
-            return super.shouldAutorotate
-        }
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.preferredInterfaceOrientationForPresentation
-            }
-            return super.preferredInterfaceOrientationForPresentation
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.supportedInterfaceOrientations
-            }
-            return super.supportedInterfaceOrientations
-        }
-    }}
-
 
 //*************************************
-extension UITabBarController {
-    
-    override open var shouldAutorotate: Bool {
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.shouldAutorotate
-            }
-            return super.shouldAutorotate
-        }
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.preferredInterfaceOrientationForPresentation
-            }
-            return super.preferredInterfaceOrientationForPresentation
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.supportedInterfaceOrientations
-            }
-            return super.supportedInterfaceOrientations
-        }
-    }}
 
 
 

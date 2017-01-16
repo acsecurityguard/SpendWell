@@ -107,17 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        /*if shortcutItem.type == "j.SpendWell.addExpense" {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let AddExpense = sb.instantiateViewController(withIdentifier: "AddExpense") as! SecondViewController
-            let root = UIApplication.shared.keyWindow?.rootViewController
-            
-            root?.present(AddExpense, animated: false, completion: { () -> Void in
-                completionHandler(true)
-            })
-            
-            
-        }*/
+       
     }
 
 

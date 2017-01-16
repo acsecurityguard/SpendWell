@@ -25,14 +25,7 @@ class SingleCellViewController: UIViewController {
     
     var showReceipt = UIImage(named: "")
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

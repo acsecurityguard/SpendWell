@@ -14,19 +14,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
 
 
 {
-    @IBOutlet var checkLabel: UILabel!
+    @IBOutlet private(set) var checkLabel: UILabel!
     //check mark if a picture as chosen
     
-    @IBOutlet var imagePicked: UIImageView!
+    @IBOutlet private(set) var imagePicked: UIImageView!
     //image view of the image picked
     
-    private var imagePicker: UIImagePickerController!
+    private private(set) var imagePicker: UIImagePickerController!
     //image picker
     
-    @IBOutlet private var textTitle: UITextField!
+    @IBOutlet private(set) private var textTitle: UITextField!
     //title of expense
     
-    @IBOutlet private var textAmount: UITextField!
+    @IBOutlet private(set) var textAmount: UITextField!
     //price of expense
     
     var picker:UIImagePickerController?=UIImagePickerController()
@@ -39,9 +39,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     //-------------------------------------------
 
     
-    @IBOutlet private weak var textRating: UILabel!
+    @IBOutlet private(set) weak var textRating: UILabel!
     
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add Expense"
         
@@ -54,13 +54,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         
     }
     
-    override func didReceiveMemoryWarning() {
+    override internal func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
             }
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet private(set) weak var slider: UISlider!
+    @IBOutlet private(set) weak var sliderLabel: UILabel!
     
-    @IBAction func sliderAction(_ sender: UISlider)
+    @IBAction private func sliderAction(_ sender: UISlider)
     {
         sliderLabel.text = "\(Int(slider.value))"
     }
@@ -118,7 +118,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
     
     
     //****************************
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    override internal func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
     }

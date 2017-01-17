@@ -241,14 +241,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="304" height="542"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title                                  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk6-kY-huH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title                                  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk6-kY-huH">
                                             <rect key="frame" x="8" y="44" width="178" height="21"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price                                  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-Mp-1zx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price                                  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-Mp-1zx">
                                             <rect key="frame" x="8" y="94" width="178" height="21"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -257,7 +257,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myx-QE-hP6">
                                             <rect key="frame" x="8" y="65" width="178" height="21"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -277,7 +276,6 @@
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="          " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBj-ZV-LFQ">
                                             <rect key="frame" x="8" y="115" width="178" height="21"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -287,10 +285,8 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6o-Br-0Ib">
                                             <rect key="frame" x="8" y="8" width="275" height="33"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                            <state key="normal" title="return">
-                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            </state>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <state key="normal" title="return"/>
                                             <connections>
                                                 <segue destination="49e-Tb-3d3" kind="show" id="EhI-8o-1hj"/>
                                             </connections>
@@ -388,16 +384,16 @@
                                         <rect key="frame" x="10" y="10" width="300" height="455"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-xL-Kpi">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-Ku-TLa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fsl-AR-omJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="75.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tCQ-6u-ubi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="75.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title                                                                          " minimumFontSize="17" background="first" translatesAutoresizingMaskIntoConstraints="NO" id="rUB-D5-pSr" userLabel="textTitle">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -426,7 +422,7 @@
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="A3t-NV-OhY">
-                                                                <rect key="frame" x="0.0" y="105.5" width="300" height="80"/>
+                                                                <rect key="frame" x="0.0" y="105" width="300" height="80"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pfg-cg-gZ0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="135" height="80"/>
@@ -460,16 +456,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-6w-jGa">
-                                                                <rect key="frame" x="0.0" y="215.5" width="300" height="23"/>
+                                                                <rect key="frame" x="0.0" y="215" width="300" height="23.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How important is this expense?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHI-CF-ObA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="277" height="23"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="277" height="23.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lux-l3-bWj">
-                                                                        <rect key="frame" x="277" y="0.0" width="23" height="23"/>
+                                                                        <rect key="frame" x="277" y="0.0" width="23" height="23.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -478,7 +474,7 @@
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                             </stackView>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-c1-uwg">
-                                                                <rect key="frame" x="-2" y="268.5" width="304" height="32"/>
+                                                                <rect key="frame" x="-2" y="268.5" width="304" height="31.5"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                 <color key="tintColor" red="0.56476330760000004" green="0.79619055989999998" blue="0.46587395669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <connections>
@@ -490,13 +486,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="c5D-xp-cBP">
-                                                <rect key="frame" x="0.0" y="319.5" width="300" height="135.5"/>
+                                                <rect key="frame" x="0.0" y="319" width="300" height="136"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tci-fr-UWw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="32.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LX9-Mp-z8x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="32.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="32"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                 <state key="normal" image="Image-5">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -506,7 +502,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlp-aO-Hlg">
-                                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="32.5"/>
+                                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="32"/>
                                                                 <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" image="Image-2">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -519,7 +515,7 @@
                                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOJ-eo-K72">
-                                                        <rect key="frame" x="0.0" y="32.5" width="300" height="103"/>
+                                                        <rect key="frame" x="0.0" y="32" width="300" height="104"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>

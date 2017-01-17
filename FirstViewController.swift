@@ -15,19 +15,19 @@ class FirstViewController: UIViewController,  NSFetchedResultsControllerDelegate
     
     /*Variables
      */
-    @IBOutlet var descripts: UITableView!
+    @IBOutlet private(set) var descripts: UITableView!
     //table view with information of title, price and rating
     
-    @IBOutlet weak var wellTrack: UIProgressView!
+    @IBOutlet private(set) weak var wellTrack: UIProgressView!
     //progress view for the rating
     
-    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private(set) weak var scrollView: UIScrollView!
     //scroll view
     
-    @IBOutlet weak var totalSpent: UILabel!
+    @IBOutlet private(set) weak var totalSpent: UILabel!
     //total spent (sum of all expenses)
     
-    @IBOutlet weak var textRecommend: UILabel!
+    @IBOutlet private(set) weak var textRecommend: UILabel!
     //recommended text according to rating
     
     var value: Float!
@@ -102,7 +102,7 @@ class FirstViewController: UIViewController,  NSFetchedResultsControllerDelegate
        
     
     //***************************************
-    func getData(){
+    private func getData(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do{
             

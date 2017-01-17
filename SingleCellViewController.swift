@@ -26,7 +26,7 @@ class SingleCellViewController: UIViewController {
     var showReceipt = UIImage(named: "")
     
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
 
         titleLabel.text = showTitle
@@ -39,7 +39,7 @@ class SingleCellViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override internal func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

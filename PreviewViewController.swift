@@ -2,75 +2,51 @@
 //  PreviewViewController.swift
 //  SpendWell
 //
-//  Created by Raul Hossa Rambo on 2017-01-13.
+//  Created by Raul Hossa Rambo on 2017-01-17.
 //  Copyright © 2017 Raul Hossa Rambo. All rights reserved.
 //
 
 import UIKit
 
 class PreviewViewController: UIViewController {
-    
-    var selectedItem:String! = " "
-    
-    
-    
-    
-    @IBOutlet weak var previewLabel: UILabel!
-    
-    var previewActions:[UIPreviewActionItem] {
-        previewLabel.text = " "
-        
-        let item1 = UIPreviewAction(title: "Do something", style: .default) { (action:UIPreviewAction, vc:UIViewController) -> Void in
-            print("Awesome")
-        }
-        
-        let item2 = UIPreviewAction(title: "Do even more", style: .default) { (action:UIPreviewAction, vc:UIViewController) -> Void in
-            print("cool")
-        }
-        
-        return [item1, item2]
-        
-    }
 
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        var selectedItem:UIImage!
         
-        registerForPreviewing(with: self as! UIViewControllerPreviewingDelegate, sourceView: view)
-        // Do any additional setup after loading the view.
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
-        return UIViewController()
-    }
     
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @IBOutlet var previewLabel: UIImageView!
         
-        previewLabel.text = selectedItem
+      
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            // Do any additional setup after loading the view.
+        }
         
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+        
+        
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            previewLabel.image = selectedItem
+            
+        }
+        
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+         // Get the new view controller using segue.destinationViewController.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
 }
-

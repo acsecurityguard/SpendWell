@@ -82,6 +82,10 @@ class FirstViewController: UIViewController,  NSFetchedResultsControllerDelegate
         // Do any additional setup after loading the view, typically from a nib.
         scrollView.contentSize.height = 2000
         
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self as UIViewControllerPreviewingDelegate, sourceView: descripts)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,14 +120,6 @@ class FirstViewController: UIViewController,  NSFetchedResultsControllerDelegate
     
     
 }
-
-
-
-
-
-
-
-
 
 
 

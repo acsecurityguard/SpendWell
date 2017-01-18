@@ -50,7 +50,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.gray]
         
-  
+        
         
     }
     
